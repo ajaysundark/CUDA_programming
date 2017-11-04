@@ -1,0 +1,13 @@
+[karup002@ece-gpulab03 MP5]$ ./histogram 
+    Timing 'ref_2dhisto' started
+        GetTimeOfDay Time (for 50 iterations) = 23.7
+        Clock Time        (for 50 iterations) = 23.7
+    Timing 'ref_2dhisto' ended
+
+    Timing 'opt_2dhisto' started
+        GetTimeOfDay Time (for 50 iterations) = 8.08
+        Clock Time        (for 50 iterations) = 8.01
+    Timing 'opt_2dhisto' ended
+
+    Test PASSED
+
