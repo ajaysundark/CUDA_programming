@@ -1,0 +1,19 @@
+Data Parallel Reduction
+
+1.  How many times does your thread block synchronize to reduce its portion
+    of an array to a single value?
+
+	considering this question for reducing a single block: 
+	one synchronization for loading the global memory to shared memory.
+	also, after each level, we synchronize the threads:
+	i.e., log(BLOCK_SIZE) <- since the first add is done part of the load, this reduces
+	one synchronization  {from log(BLOCK_SIZE*2) to log(BLOCK_SIZE) }
+
+2.  What is the minimum, maximum, and average number of "real" operations
+    that a thread will perform? "Real" operations are those that directly
+    contribute to the final reduction value, i.e., iterations of the reduction
+    computation.
+
+	minimum no of operations a thread could perform : 1 (if the threads are handling far end of shared memory,
+	they just do the load and first add operation)
+	average, maximum no of operations : O(log N) ; N -> BLOCK_SIZE
